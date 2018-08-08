@@ -42,10 +42,11 @@ module.exports = {
     }),
 
     isProd ? 
-      new Dotenv() :
       new webpack.DefinePlugin({
         'process.env.CLIENT_ID': JSON.stringify(process.env.CLIENT_ID),
-      }),
+      }) :
+      new Dotenv()
+     
   ],
 
   module: {

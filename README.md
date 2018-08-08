@@ -54,6 +54,18 @@ The `signin-success` event will return an object inside the detail with the foll
 * `token`: the token_id returned from Google authentication
 * `profile`: the data exposed by the `googleUser.getBasicProfile()` in the SDK.
 
+To trigger the logout from the current session you must import the `signOut` method from the main package:
+
+```javascript
+import { signOut } from '@databiz/google-login';
+
+// ...some code later...
+
+signOut().then(() => {
+  // code to execute after the logout is completed
+});
+
+```
 
 ### Browser compatibility
 The component is built following the Custom Elements v1 and EcmaScript 2015 specifications.

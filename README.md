@@ -1,13 +1,12 @@
-# basic-starter-kit
+# @databiz/google-login
 
-## -- WORK IN PROGRESS --
-<!-- [![Build Status](https://travis-ci.org/bitrock-frontend/basic-starter-kit.svg?branch=master)](https://travis-ci.org/bitrock-frontend/basic-starter-kit) -->
+[![Build Status](https://travis-ci.org/bitrockteam/databiz-login.svg?branch=master)](https://travis-ci.org/bitrockteam/databiz-login)
 
 > Web Component to simplify authentication using Google oAuth for Databiz group domains.
 
 ### How to use
 
-Install the package from NPM registry (soon)
+Install the package from NPM registry
 ```bash
 $ npm install @databiz/google-login
 --- or ---
@@ -65,20 +64,20 @@ The component is built following the Custom Elements v1 and EcmaScript 2015 spec
 | CE polyfill | ☑️ | ☑️ | ☑️ | ☑️ | ☑️ | ✖️ |
 
 ### Available NPM tasks
-Start the project in development mode (live reload)
+Start the demo page in development mode (live reload)
 ```bash
 $ yarn start
 ```
 
-Create a static build in the `./dist` folder
+Create a static build in the root folder
 ```bash
 $ yarn build
 ```
 
-Run the tests
+<!-- Run the tests
 ```bash
 $ yarn test
-```
+``` -->
 
 Run the build action and deploy to GitHub pages 
 ```bash

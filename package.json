@@ -1,17 +1,17 @@
 {
-  "name": "basic-starter-kit",
+  "name": "@databiz/google-login",
   "version": "1.0.0",
   "main": "src/index.js",
-  "displayName": "Starter kit",
+  "displayName": "databiz-login",
   "config": {
     "themeColor": "#e74e0f"
   },
-  "description": "Your next awesome project",
+  "description": "Web Component to simplify authentication using Google oAuth for Databiz group domains.",
   "repository": "git@github.com:bitrock-frontend/basic-starter-kit.git",
-  "author": "Salvatore Laisa <moebiusmania@gmail.com>",
+  "author": "Salvatore Laisa <salvatore.laisa@bitrock.it>",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --hot",
+    "start": "NODE_ENV=development webpack-serve --config ./webpack.demo.js",
     "build": "NODE_ENV=production webpack",
     "deploy": "NODE_ENV=production npm run build && gh-pages -d dist",
     "test:unit": "NODE_ENV=test ava ./test/index.js --verbose",
@@ -21,21 +21,20 @@
     "ava": "0.25.0",
     "css-loader": "1.0.0",
     "cypress": "3.0.2",
+    "dotenv-webpack": "1.5.7",
     "esm": "3.0.71",
     "favicons-webpack-plugin": "0.0.9",
     "gh-pages": "1.2.0",
     "html-webpack-plugin": "3.2.0",
     "jsdom": "11.11.0",
-    "node-sass": "4.9.2",
-    "sass-loader": "7.0.3",
     "style-loader": "0.21.0",
     "webpack": "4.16.1",
     "webpack-cli": "3.0.8",
     "webpack-dev-server": "3.1.4",
-    "webpack-pwa-manifest": "3.6.2",
-    "workbox-webpack-plugin": "3.4.1"
+    "webpack-serve": "2.0.2"
   },
   "dependencies": {
+    "lit-html": "0.10.2",
     "normalize.css": "8.0.0",
     "typebase.css": "0.5.0"
   },

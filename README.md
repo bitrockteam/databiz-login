@@ -1,45 +1,68 @@
 # basic-starter-kit
 
-[![Build Status](https://travis-ci.org/bitrock-frontend/basic-starter-kit.svg?branch=master)](https://travis-ci.org/bitrock-frontend/basic-starter-kit)
+## -- WORK IN PROGRESS --
+<!-- [![Build Status](https://travis-ci.org/bitrock-frontend/basic-starter-kit.svg?branch=master)](https://travis-ci.org/bitrock-frontend/basic-starter-kit) -->
 
-Boilerplate for Bitrock frontend projects. It's a minimal configuration of a Webpack driven frameworkless project, with PWA compliance and a high Lighthouse score.
-
-It's intended for:
-* demonstrate an implementation of our frontend styleguide
-* quick POC project
-* starting point for more advanced and/or opinionated projects
-
-### What's included
-* [Normalize.css](https://necolas.github.io/normalize.css/) & [Typebase.css](http://devinhunt.github.io/typebase.css/)
-* [AVA](https://github.com/avajs/ava) & [XO](https://github.com/xojs/xo)
-* [Cypress](https://www.cypress.io/)
-* Webpack
-  * CSS & SASS loaders
-  * dev-server
-  * HTML plugin
-  * PWA manifest plugin
-  * [Workbox](https://developers.google.com/web/tools/workbox/) plugin
+> Web Component to simplify authentication using Google oAuth for Databiz group domains.
 
 ### How to use
-Clone the project (optionally ) and install dependencies
 
+Install the package from NPM registry (soon)
 ```bash
-$ git clone https://github.com/bitrock-frontend/basic-starter-kit my-project
-$ cd my-project && yarn
+$ npm install @databiz/google-login
+--- or ---
+$ yarn add @databiz/google-login
 ```
 
-most of the project customization can be achieved via the `package.json` file
-```json
-{
-  ...
-  "displayName": "Starter kit",
-  "config": {
-    "themeColor": "#e74e0f"
-  },
-  "description": "Your next awesome project",
-  ...
-}
+If you want to include the compiled version (no build-step neeed), just load the script tag:
+```html
+<script src="./node_modules/@databiz/google-login/login.js" async defer></script>
 ```
+
+Or if you are working with Webpack and ES modules:
+```javascript
+import '@databiz/google-login';
+```
+
+then in your markup add
+
+```html
+<databiz-login
+  client-id="YOUR-CLIENT-ID"
+></databiz-login>
+```
+
+the `client-id` is a required parameter and you can obtain it from the Google Developer console.
+
+This will render the Google login button, once clicked a popup will be prompted to user to choose an account and confirm.
+
+To react to the login attempt the component fires two custom events: `signin-success` and `signin-error`.
+
+A quick example:
+
+```javascript
+const $login = document.querySelector('databiz-login');
+
+$login.addEventListener('signin-success', 
+  evt => console.log(evt.detail));
+
+$login.addEventListener('signin-error', 
+  evt => console.log(evt.detail));
+```
+
+The `signin-success` event will return an object inside the detail with the following data:
+
+* `token`: the token_id returned from Google authentication
+* `profile`: the data exposed by the `googleUser.getBasicProfile()` in the SDK.
+
+
+### Browser compatibility
+The component is built following the Custom Elements v1 and EcmaScript 2015 specifications.
+
+| | Chrome | Firefox | Safari | Opera | Edge | IE11 |
+|--|--|--|--|--|--|--|
+| as-is | ☑️ | ☑️ | ☑️ | ☑️ |✖️| ✖️ |
+| CE polyfill | ☑️ | ☑️ | ☑️ | ☑️ | ☑️ | ✖️ |
 
 ### Available NPM tasks
 Start the project in development mode (live reload)

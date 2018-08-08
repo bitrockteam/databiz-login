@@ -7,6 +7,8 @@ const Dotenv = require('dotenv-webpack');
 const pkg = require('./package.json');
 const { isProd, envs, env } = require('./scripts/envs.js');
 
+console.log(process.env.CLIENT_ID)
+
 module.exports = {
   entry: {
     main: './src/index.js'
@@ -39,7 +41,11 @@ module.exports = {
       template: './src/assets/index.html'
     }),
 
-    new Dotenv()
+    isProd ? 
+      new Dotenv() :
+      new webpack.DefinePlugin({
+        'process.env.CLIENT_ID': JSON.stringify(process.env.CLIENT_ID),
+      }),
   ],
 
   module: {

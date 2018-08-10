@@ -1,7 +1,7 @@
 {
   "name": "@databiz/google-login",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "src/components/google.login.js",
   "displayName": "databiz-login",
   "config": {
     "themeColor": "#e74e0f"

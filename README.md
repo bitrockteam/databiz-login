@@ -8,9 +8,9 @@
 
 Install the package from NPM registry
 ```bash
-$ npm install @databiz/google-login
+$ npm install @bitrock-it/databiz-login
 --- or ---
-$ yarn add @databiz/google-login
+$ yarn add @bitrock-it/databiz-login
 ```
 
 If you want to include the compiled version (no build-step neeed), just load the script tag:

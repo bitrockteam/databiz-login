@@ -1,7 +1,7 @@
 {
-  "name": "@databiz/google-login",
+  "name": "@bitrock-it/databiz-login",
   "version": "1.0.0",
-  "main": "src/components/google.login.js",
+  "main": "src/components/databiz.login.js",
   "displayName": "databiz-login",
   "config": {
     "themeColor": "#e74e0f"

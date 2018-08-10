@@ -1,7 +1,7 @@
 
 import { html, render } from 'lit-html/lib/lit-extended';
 import pkg from './../package.json';
-import { signOut } from './components/google.login';
+import { signOut } from './components/databiz.login';
 
 const root = document.querySelector('#root');
 

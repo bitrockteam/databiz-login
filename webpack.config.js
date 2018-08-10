@@ -5,7 +5,7 @@ const { isProd, envs } = require('./scripts/envs.js');
 
 module.exports = {
   entry: {
-    login: './src/components/google.login.js'
+    component: './src/components/databiz.login.js'
   },
   output: {
     path: path.join(__dirname, './'),

@@ -15,12 +15,12 @@ $ yarn add @databiz/google-login
 
 If you want to include the compiled version (no build-step neeed), just load the script tag:
 ```html
-<script src="./node_modules/@databiz/google-login/login.js" async defer></script>
+<script src="./node_modules/@bitrock-it/databiz-login/component.js" async defer></script>
 ```
 
 Or if you are working with Webpack and ES modules:
 ```javascript
-import '@databiz/google-login';
+import '@bitrock-it/databiz-login';
 ```
 
 then in your markup add
@@ -57,7 +57,7 @@ The `signin-success` event will return an object inside the detail with the foll
 To trigger the logout from the current session you must import the `signOut` method from the main package:
 
 ```javascript
-import { signOut } from '@databiz/google-login';
+import { signOut } from '@bitrock-it/databiz-login';
 
 // ...some code later...
 

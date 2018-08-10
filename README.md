@@ -1,8 +1,8 @@
-# @databiz/google-login
+# @bitrock-it/databiz-login
 
 [![Build Status](https://travis-ci.org/bitrockteam/databiz-login.svg?branch=master)](https://travis-ci.org/bitrockteam/databiz-login)
 
-> Web Component to simplify authentication using Google oAuth for Databiz group domains.
+> Web Component to simplify authentication using Google oAuth for Databiz group domains, it wraps the [Google Sign-in for Websites SDK](https://developers.google.com/identity/sign-in/web/) and expose custom events for its functionalities.
 
 ### How to use
 
@@ -81,21 +81,27 @@ Start the demo page in development mode (live reload)
 $ yarn start
 ```
 
-Create a static build in the root folder
+Create a static build of the main component in the `root` folder
 ```bash
 $ yarn build
 ```
 
-<!-- Run the tests
+Create a static build of the demo page in the `./dist` folder
 ```bash
-$ yarn test
-``` -->
+$ yarn demo
+```
 
-Run the build action and deploy to GitHub pages 
+Run the `demo` action and deploy to GitHub pages 
 ```bash
 $ yarn deploy
 ```
 
+### Local development
+In order to haave a local development environment, you must create a `.env` file in the project root and add your Google application's client id:
+
+```
+CLIENT_ID=123fake123client123id
+```
 
 ### License
 Developed by Bitrock UI Engineering team, released under the [MIT license](LICENSE).

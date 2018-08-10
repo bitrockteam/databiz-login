@@ -4,6 +4,7 @@ import pkg from './../package.json';
 import { signOut } from './components/databiz.login';
 
 const root = document.querySelector('#root');
+console.log(process.env.CLIENT_ID)
 
 const state = {
   empty: true

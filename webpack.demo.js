@@ -6,11 +6,9 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 const pkg = require('./package.json');
-const { isProd, envs, env } = require('./scripts/envs.js');
+const { isProd, envs } = require('./scripts/envs.js');
 
-console.log(process.env.CLIENT_ID)
-
-module.exports = {
+const config = {
   entry: {
     main: './src/index.js'
   },
@@ -20,7 +18,7 @@ module.exports = {
     chunkFilename: '[name].[hash].js'
   },
 
-  mode: isProd ? envs.production : envs.development,
+  mode: isProd() ? envs.production : envs.development,
   devtool: isProd ? 'source-map' : undefined,
 
   plugins: [
@@ -42,7 +40,7 @@ module.exports = {
       template: './src/assets/index.html'
     }),
 
-    isProd ? 
+    isProd() ? 
       new webpack.DefinePlugin({
         'process.env.CLIENT_ID': JSON.stringify(process.env.CLIENT_ID),
       }) :
@@ -64,18 +62,7 @@ module.exports = {
           'sass-loader']
       }
     ]
-  },
-
-  // devServer: {
-  //   contentBase: path.join(__dirname, 'dist'),
-  //   watchContentBase: true,
-  //   watchOptions: {
-  //     poll: true
-  //   },
-  //   compress: true,
-  //   port: 4000,
-  //   host: 'localhost',
-  //   hot: true,
-  //   inline: true
-  // }
+  }
 }
+
+module.exports = config;

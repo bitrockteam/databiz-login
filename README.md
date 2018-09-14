@@ -13,7 +13,7 @@ $ npm install @bitrock-it/databiz-login
 $ yarn add @bitrock-it/databiz-login
 ```
 
-If you want to include the compiled version (no build-step neeed), just load the script tag:
+If you want to include the compiled version (no build-step needed), just load the script tag:
 ```html
 <script src="./node_modules/@bitrock-it/databiz-login/component.js" async defer></script>
 ```
@@ -72,8 +72,8 @@ The component is built following the Custom Elements v1 and EcmaScript 2015 spec
 
 | | Chrome | Firefox | Safari | Opera | Edge | IE11 |
 |--|--|--|--|--|--|--|
-| as-is | ☑️ | ☑️ | ☑️ | ☑️ |✖️| ✖️ |
-| CE polyfill | ☑️ | ☑️ | ☑️ | ☑️ | ☑️ | ✖️ |
+| as-is | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |:x:|:x:|
+| CE polyfill | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ### Available NPM tasks
 Start the demo page in development mode (live reload)
@@ -97,7 +97,7 @@ $ yarn deploy
 ```
 
 ### Local development
-In order to haave a local development environment, you must create a `.env` file in the project root and add your Google application's client id:
+In order to have a local development environment, you must create a `.env` file in the project root and add your Google application's client id:
 
 ```
 CLIENT_ID=123fake123client123id

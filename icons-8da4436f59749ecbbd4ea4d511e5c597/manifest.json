@@ -1,6 +1,6 @@
 {
-  "name": "@bitrock-it/databiz-login",
-  "short_name": "@bitrock-it/databiz-login",
+  "name": "@databiz/login",
+  "short_name": "@databiz/login",
   "description": null,
   "dir": "auto",
   "lang": "en-US",

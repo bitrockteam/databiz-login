@@ -1,4 +1,4 @@
-# @bitrock-it/databiz-login
+# @databiz/login
 
 [![Build Status](https://travis-ci.org/bitrockteam/databiz-login.svg?branch=master)](https://travis-ci.org/bitrockteam/databiz-login)
 

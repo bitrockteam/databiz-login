@@ -1,5 +1,5 @@
 
-import { html, render } from 'lit-html/lib/lit-extended';
+import { html, render } from 'lit-html';
 import pkg from './../package.json';
 import { signOut } from './components/databiz.login';
 
@@ -28,7 +28,7 @@ const result = state => state.empty ? '' : html`
   <section id="result">
     <pre>${JSON.stringify(state.data, null, 2)}</pre>
     <button
-      on-click="${e => logout(e)}"
+      @click=${(e) => logout(e)}
     >Logout</button>
   </section>
 `;
@@ -39,9 +39,9 @@ const markup = (state) => html`
     <section>
       <p>Test it now!</p>
       <databiz-login
-        on-signin-success="${e => display(e)}"
-        on-signin-error="${e => display(e)}"
-        client-id$=${process.env.CLIENT_ID}
+        @signin-success=${(e) => display(e)}
+        @signin-error=${(e) => display(e)}
+        client-id=${process.env.CLIENT_ID}
       ></databiz-login>
     </section>
     ${result(state)}

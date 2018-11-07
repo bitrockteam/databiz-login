@@ -1,5 +1,5 @@
 {
-  "name": "@bitrock-it/databiz-login",
+  "name": "@databiz/login",
   "version": "1.0.0",
   "main": "src/components/databiz.login.js",
   "displayName": "databiz-login",
@@ -11,7 +11,7 @@
   "author": "Salvatore Laisa <salvatore.laisa@bitrock.it>",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development webpack-serve --config ./webpack.demo.js",
+    "start": "NODE_ENV=development webpack-dev-server --hot --config ./webpack.demo.js",
     "build": "NODE_ENV=production webpack",
     "demo": "NODE_ENV=production webpack --config ./webpack.demo.js",
     "deploy": "NODE_ENV=production npm run demo && gh-pages -d dist",
@@ -20,22 +20,21 @@
   },
   "devDependencies": {
     "ava": "0.25.0",
-    "css-loader": "1.0.0",
-    "cypress": "3.0.2",
+    "css-loader": "1.0.1",
+    "cypress": "3.1.1",
     "dotenv-webpack": "1.5.7",
-    "esm": "3.0.71",
+    "esm": "3.0.84",
     "favicons-webpack-plugin": "0.0.9",
-    "gh-pages": "1.2.0",
+    "gh-pages": "2.0.1",
     "html-webpack-plugin": "3.2.0",
     "jsdom": "11.11.0",
-    "lit-html": "0.10.2",
+    "lit-html": "0.12.0",
     "normalize.css": "8.0.0",
-    "style-loader": "0.21.0",
+    "style-loader": "0.23.1",
     "typebase.css": "0.5.0",
-    "webpack": "4.16.1",
-    "webpack-cli": "3.0.8",
-    "webpack-dev-server": "3.1.4",
-    "webpack-serve": "2.0.2"
+    "webpack": "4.25.1",
+    "webpack-cli": "3.1.2",
+    "webpack-dev-server": "3.1.10"
   },
   "dependencies": {},
   "ava": {

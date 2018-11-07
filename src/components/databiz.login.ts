@@ -1,5 +1,9 @@
 
-export const event = (event, detail) => 
+declare global {
+  const gapi: any
+}
+
+export const event = (event :string, detail :object) => 
   new CustomEvent(event, { detail, bubbles: true });
 
 export const signOut = () => {
@@ -10,7 +14,7 @@ export const signOut = () => {
 export default class DbzGoogleLogin extends HTMLElement {
 
   connectedCallback() {
-    const client = this.getAttribute('client-id') || '';
+    const client :string = this.getAttribute('client-id') || '';
 
     this.innerHTML = /*html*/`
       <div id="signin2"></div>
@@ -19,8 +23,8 @@ export default class DbzGoogleLogin extends HTMLElement {
     this._addScript(client);
   }
 
-  _addScript(client_id) {
-    const tag = Object.assign(
+  _addScript(client_id :string) {
+    const tag :HTMLElement = Object.assign(
       document.createElement('script'), {
         src: 'https://apis.google.com/js/platform.js',
         onload: () => this._renderButton(client_id)
@@ -28,7 +32,7 @@ export default class DbzGoogleLogin extends HTMLElement {
     document.head.appendChild(tag);
   }
 
-  _renderButton(client_id) {
+  _renderButton(client_id :string) {
     const GoogleLib = new Promise(resolve => 
       gapi.load('auth2', () => resolve()));
 
@@ -52,7 +56,7 @@ export default class DbzGoogleLogin extends HTMLElement {
     
   }
 
-  _onFailure(error) {
+  _onFailure(error :object) {
     const failure = new Promise(resolve => resolve());
     failure
       .then(() => ({ error }))
@@ -60,7 +64,7 @@ export default class DbzGoogleLogin extends HTMLElement {
       .then(evt => this.dispatchEvent(evt));
   }
 
-  _approve(googleUser) {   
+  _approve(googleUser :any) {   
     const approve = new Promise(resolve => resolve());
     approve
       .then(() => googleUser.getBasicProfile())
@@ -82,9 +86,9 @@ export default class DbzGoogleLogin extends HTMLElement {
   }
 
   _onSuccess(googleUser) {
-    const domain = googleUser.getHostedDomain();
-    const accept = ['bitrock.it', 'databiz.it', 'radicalbit.io'];
-    const valid = accept.filter(e => domain === e).length;
+    const domain :string = googleUser.getHostedDomain();
+    const accept :Array<string> = ['bitrock.it', 'databiz.it', 'radicalbit.io'];
+    const valid :number = accept.filter(e => domain === e).length;
 
     valid ? this._approve(googleUser) : this._reject();
   }

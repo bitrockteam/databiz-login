@@ -3,20 +3,26 @@ import { html, render } from 'lit-html';
 import pkg from './../package.json';
 import { signOut } from './components/databiz.login';
 
-const root = document.querySelector('#root');
-console.log(process.env.CLIENT_ID)
+const root :HTMLElement = document.querySelector('#root');
+console.log(process.env.CLIENT_ID);
 
-const state = {
+interface State {
+  empty: boolean,
+  data: object
+};
+
+const state :State = {
+  data: undefined,
   empty: true
 };
 
-const display = evt => {
+const display = (evt :CustomEvent) => {
   state.data = evt.detail;
   state.empty = false;
   render(markup(state), root);
 }
 
-const logout = evt => {
+const logout = (evt :CustomEvent) => {
   signOut().then(() => {
     state.data = undefined;
     state.empty = true;
@@ -24,23 +30,23 @@ const logout = evt => {
   });
 }
 
-const result = state => state.empty ? '' : html`
+const result = (state :State) => state.empty ? '' : html`
   <section id="result">
     <pre>${JSON.stringify(state.data, null, 2)}</pre>
     <button
-      @click=${(e) => logout(e)}
+      @click=${(e :CustomEvent) => logout(e)}
     >Logout</button>
   </section>
 `;
 
-const markup = (state) => html`
+const markup = (state :State) => html`
   <main class="container">
     <h1>${pkg.name}</h1>
     <section>
       <p>Test it now!</p>
       <databiz-login
-        @signin-success=${(e) => display(e)}
-        @signin-error=${(e) => display(e)}
+        @signin-success=${(e :CustomEvent) => display(e)}
+        @signin-error=${(e :CustomEvent) => display(e)}
         client-id=${process.env.CLIENT_ID}
       ></databiz-login>
     </section>

@@ -1,10 +1,13 @@
 {
   "name": "@databiz/login",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "src/components/databiz.login.js",
   "displayName": "databiz-login",
   "config": {
     "themeColor": "#e74e0f"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "description": "Web Component to simplify authentication using Google oAuth for Databiz group domains.",
   "repository": "git@github.com:bitrockteam/databiz-login.git",
